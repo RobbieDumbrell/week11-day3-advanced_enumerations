@@ -5,7 +5,7 @@ const AnagramFinder = function (word) {
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
     const lowerCaseWord = this.word.toLowerCase()
     const sortedWord = lowerCaseWord.split('').sort().toString();
-    
+
     const results = otherWords.filter((otherWord) => {
 
         const lowerCaseOtherWord = otherWord.toLowerCase();
@@ -13,7 +13,7 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
         const sortedOtherWord = otherWordAsArray.sort();
         const sortedOtherWordAsString = sortedOtherWord.toString();
 
-        if (lowerCaseWord === lowerCaseOtherWord){
+        if (lowerCaseWord === lowerCaseOtherWord) {
             return false
         } else {
             return (sortedOtherWordAsString === sortedWord);
