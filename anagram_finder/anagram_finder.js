@@ -4,22 +4,22 @@ const AnagramFinder = function (word) {
 
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
     const lowerCaseWord = this.word.toLowerCase()
-    const splitWord = lowerCaseWord.split('').sort().toString();
+    const sortedWord = lowerCaseWord.split('').sort().toString();
+    
     const results = otherWords.filter((otherWord) => {
-        let otherWordAsArray = otherWord.toLowerCase().split('');
-        let sortedOtherWord = otherWordAsArray.sort();
-        let sortedOtherWordAsString = sortedOtherWord.toString();
 
-        if (lowerCaseWord === otherWord.toLowerCase()){
+        const lowerCaseOtherWord = otherWord.toLowerCase();
+        const otherWordAsArray = lowerCaseOtherWord.split('');
+        const sortedOtherWord = otherWordAsArray.sort();
+        const sortedOtherWordAsString = sortedOtherWord.toString();
+
+        if (lowerCaseWord === lowerCaseOtherWord){
             return false
         } else {
-            return (sortedOtherWordAsString === splitWord);
+            return (sortedOtherWordAsString === sortedWord);
         }
     })
     return results;
 }
 
 module.exports = AnagramFinder;
-
-anagramFinder = new AnagramFinder('AcT');
-console.log(anagramFinder.findAnagrams(['caT', 'cAt', 'CAT']));

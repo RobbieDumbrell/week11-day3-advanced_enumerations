@@ -4,9 +4,9 @@ const PangramFinder = function (phrase) {
 }
 
 PangramFinder.prototype.isPangram = function () {
+  const phraseToCheck = this.phrase.toLowerCase();
 
   const result = this.alphabet.every((letter) => {
-    let phraseToCheck = this.phrase.toLowerCase();
     return phraseToCheck.includes(letter);
   })
   return result;
@@ -15,4 +15,3 @@ PangramFinder.prototype.isPangram = function () {
 
 module.exports = PangramFinder;
 
-// console.log('abc'.includes('a'));

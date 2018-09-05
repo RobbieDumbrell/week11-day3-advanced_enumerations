@@ -1,10 +1,12 @@
 const IsogramFinder = function (word) {
-    this.word = word.split('');
+    this.word = word;
 }
 
 IsogramFinder.prototype.isIsogram = function () {
+    const splitWord = this.word.split('');
     let uniqueLetters = [];
-    const result = this.word.every((letter) => {
+    
+    const result = splitWord.every((letter) => {
         if (uniqueLetters.includes(letter)){
             return false
         } else {
